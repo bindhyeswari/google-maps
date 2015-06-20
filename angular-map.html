@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Google Map Example</title>
+    <link rel="stylesheet" href="base.css"/>
+
+    <style>
+        #map > div {
+            height: 400px;
+            width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        div.text {
+            padding: 1em;
+            border: 1px solid gray;
+            margin-bottom: 30px;
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="text" ng-controller="InfoController">
+    <h1>Google Maps UI Example</h1>
+    <div>{{message}}</div>
+    <div>{{message2}}</div>
+</div>
+
+<section id="map" ng-controller="MapCtrl" >
+    <div  ui-map="myMap"ui-options="mapOptions" class="map-canvas"
+          ui-event="{'map-click': 'addMarker($event, $params)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }"
+            ></div>
+</section>
+
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-utils/ui-utils.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-map/ui-map.js"></script>
+<script src="map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&callback=onGoogleReady"></script>
+</body>
+</html>
